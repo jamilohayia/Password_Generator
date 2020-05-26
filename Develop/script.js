@@ -27,11 +27,6 @@ function generatePassword () {
   var FinalPw ="";
   var password = "";
 
-var password = generatePassword();
-
-var passwordText = document.querySelector("#password");
-
-passwordText.value = password
 
 // These are the if else statements used to generate the combination of password outcomes. 
 
@@ -64,20 +59,19 @@ else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) &&
 else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
   FinalPw +- numbers +- special; } 
         
-  
-
-
-  
-
-for (i = 0; i < length; i++){
-  var password = password + Array.from(FinalPw)[(Math.floor(Math.random() * FinalPw.length))];
+// This loop is created to 
+for (i = 0; i < length; i++) {
+  var password = password + Array.from(FinalPw)[Math.floor(Math.random() * FinalPw.length)];
 };
 
 
+var password = generatePassword();
+
 var passwordText = document.querySelector("#password");
 
-passwordText.value = password;
+passwordText.value = password
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+}
