@@ -49,24 +49,25 @@ else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && 
   FinalPw +- lower +- numbers; } 
 else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == true)) {
   FinalPw +- lower +- numbers +- special; } 
-else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == true)) {
-  FinalPw +- lower +- numbers +- special; } 
-      
+else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == false)) {
+  FinalPw +- numbers; } 
+else if((UserUpper == true) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == false)) {
+  FinalPw +- upper +- numbers; } 
+else if((UserUpper == true) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
+  FinalPw +- upper +- numbers +- special; } 
+else if((UserUpper == false) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == true)) {
+  FinalPw +- special; } 
+else if((UserUpper == true) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == true)) {
+  FinalPw +- upper +- special; } 
+else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == true)) {
+  FinalPw +- lower +- special; }         
+else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
+  FinalPw +- numbers +- special; } 
+        
   
 
-if (UserLower===true){
-  FinalPw =  FinalPw + "abcdefghijklmnopqrstuvqxyz"
-};
 
-if (UserNumbers===true){
-  FinalPw =  FinalPw + "0123456789"
-};
-
-if (UserSpecial===true){
-  FinalPw =  FinalPw + "!@#$%^&*<>"
-};
-
-var password = "";
+  
 
 for (i = 0; i < length; i++){
   var password = password + Array.from(FinalPw)[(Math.floor(Math.random() * FinalPw.length))];
