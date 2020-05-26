@@ -9,13 +9,14 @@ function writePassword() {
   var length = prompt("Please enter a number between 1 and 128."); 
   }
 
-}
 
 // These are the list of confirms used after the initial question for password length is answered.  
 var UserUpper = confirm("Would you like to include uppercase letters?")
 var UserLower = confirm("Would you like to include lowercase letters?")
 var UserNumbers = confirm("Would you like to include numbers?")
 var UserSpecial = confirm("Would you like to include special characters?")
+
+
 
 // Variables used for password generation. 
 function generatePassword () { 
@@ -70,6 +71,7 @@ var password = generatePassword();
 var passwordText = document.querySelector("#password");
 
 passwordText.value = password
+
 
 
 // Add event listener to generate button
