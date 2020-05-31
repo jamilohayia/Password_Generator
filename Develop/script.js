@@ -2,13 +2,22 @@
 var generateBtn = document.querySelector("#generate");
 
 
+// Variables used for password generation. 
+var numbers = "0123456789";
+var special = "!@#$%^&*<>";
+var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lower = "abcdefghijklmnopqrstuvqxyz";
+var FinalPw ="";
+var length = 0;
+
+
 // Write password to the #password input
-function writePassword() {
-  var length = prompt("Passwords lengths must be between 8 and 128 characters.  How many characters would you like for your password to be?");
+function generatePassword() {
+  alert("Passwords lengths must be between 8 and 128 characters.")
+  var length = prompt("How many characters would you like for your password to be?");
   while (length < 8 || length > 128) { 
   var length = prompt("Please enter a number between 1 and 128."); 
   }
-
 
 // These are the list of confirms used after the initial question for password length is answered.  
 var UserUpper = confirm("Would you like to include uppercase letters?")
@@ -17,20 +26,7 @@ var UserNumbers = confirm("Would you like to include numbers?")
 var UserSpecial = confirm("Would you like to include special characters?")
 
 
-
-// Variables used for password generation. 
-function generatePassword () { 
- 
-  var numbers = "0123456789";
-  var special = "!@#$%^&*<>";
-  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var lower = "abcdefghijklmnopqrstuvqxyz";
-  var FinalPw ="";
-  var password = "";
-
-
 // These are the if else statements used to generate the combination of password outcomes. 
-
 if ((UserUpper == true) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == false)) {
   FinalPw +- upper; }
 else if((UserUpper == true) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == false)) {
@@ -60,20 +56,26 @@ else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) &&
 else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
   FinalPw +- numbers +- special; } 
         
-// This loop is created to 
+
+// Variable used for the string. 
+var userPassword = "";
+  
+// This loop is created to create the user specific length for the password. 
 for (i = 0; i < length; i++) {
-  var password = password + Array.from(FinalPw)[Math.floor(Math.random() * FinalPw.length)];
-};
+    userPassword = userPassword + FinalPw[Math.floor(Math.random() * FinalPw.length)];
+  }
 
+return userPassword;
 
-var password = generatePassword();
+}
 
-var passwordText = document.querySelector("#password");
+function writePassword(); {                         
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 
-passwordText.value = password
-
+}
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-}
