@@ -7,7 +7,6 @@ var numbers = "0123456789";
 var special = "!@#$%^&*<>";
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lower = "abcdefghijklmnopqrstuvqxyz";
-var FinalPw ="";
 var length = 0;
 
 
@@ -20,52 +19,53 @@ function generatePassword() {
   }
 
 // These are the list of confirms used after the initial question for password length is answered.  
-var UserUpper = confirm("Would you like to include uppercase letters?")
-var UserLower = confirm("Would you like to include lowercase letters?")
-var UserNumbers = confirm("Would you like to include numbers?")
-var UserSpecial = confirm("Would you like to include special characters?")
+  var UserUpper = confirm("Would you like to include uppercase letters?")
+  var UserLower = confirm("Would you like to include lowercase letters?")
+  var UserNumbers = confirm("Would you like to include numbers?")
+  var UserSpecial = confirm("Would you like to include special characters?")
 
+  var FinalPw ="";
 
-// These are the if else statements used to generate the combination of password outcomes. 
-if ((UserUpper == true) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == false)) {
+  // These are the if else statements used to generate the combination of password outcomes. 
+  if ((UserUpper == true) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == false)) {
   FinalPw +- upper; }
-else if((UserUpper == true) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == false)) {
+  else if((UserUpper == true) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == false)) {
   FinalPw +- upper +- lower; } 
-else if((UserUpper == true) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == false)) {
+  else if((UserUpper == true) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == false)) {
   FinalPw +- upper +- lower +- numbers; } 
-else if((UserUpper == true) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == true)) {
+  else if((UserUpper == true) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == true)) {
   FinalPw +- upper +- lower +- numbers +- special; } 
-else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == false)) {
+  else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == false)) {
   FinalPw +- lower; } 
-else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == false)) {
+  else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == false)) {
   FinalPw +- lower +- numbers; } 
-else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == true)) {
+  else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == true)) {
   FinalPw +- lower +- numbers +- special; } 
-else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == false)) {
+  else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == false)) {
   FinalPw +- numbers; } 
-else if((UserUpper == true) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == false)) {
+  else if((UserUpper == true) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == false)) {
   FinalPw +- upper +- numbers; } 
-else if((UserUpper == true) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
+  else if((UserUpper == true) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
   FinalPw +- upper +- numbers +- special; } 
-else if((UserUpper == false) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == true)) {
+  else if((UserUpper == false) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == true)) {
   FinalPw +- special; } 
-else if((UserUpper == true) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == true)) {
+  else if((UserUpper == true) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == true)) {
   FinalPw +- upper +- special; } 
-else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == true)) {
+  else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == true)) {
   FinalPw +- lower +- special; }         
-else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
+  else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
   FinalPw +- numbers +- special; } 
         
 
-// Variable used for the string. 
-var userPassword = "";
+  // Variable used for the string. 
+  var userPassword = "";
   
-// This loop is created to create the user specific length for the password. 
-for (i = 0; i < length; i++) {
+  // This loop is created to create the user specific length for the password. 
+  for (i = 0; i < length; i++) {
     userPassword = userPassword + FinalPw[Math.floor(Math.random() * FinalPw.length)];
   }
 
-return userPassword;
+  return userPassword;
 
 }
 
@@ -75,7 +75,6 @@ function writePassword(); {
   passwordText.value = password;
 
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
