@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+console.log("Javascript");
 
 // Variables used for password generation. 
 var numbers = "0123456789";
@@ -14,8 +14,8 @@ var length = 0;
 function generatePassword() {
   alert("Passwords lengths must be between 8 and 128 characters.")
   var length = prompt("How many characters would you like for your password to be?");
-  while (length < 8 || length > 128) { 
-  var length = prompt("Please enter a number between 1 and 128."); 
+  while (length < 8 || length > 128 || isNaN(length)) { 
+  var length = prompt("Please enter a number between 8 and 128."); 
   }
 
 // These are the list of confirms used after the initial question for password length is answered.  
@@ -27,40 +27,27 @@ function generatePassword() {
   var FinalPw ="";
 
   // These are the if else statements used to generate the combination of password outcomes. 
-  if ((UserUpper == true) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == false)) {
-  FinalPw +- upper; }
-  else if((UserUpper == true) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == false)) {
-  FinalPw +- upper +- lower; } 
-  else if((UserUpper == true) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == false)) {
-  FinalPw +- upper +- lower +- numbers; } 
-  else if((UserUpper == true) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == true)) {
-  FinalPw +- upper +- lower +- numbers +- special; } 
-  else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == false)) {
-  FinalPw +- lower; } 
-  else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == false)) {
-  FinalPw +- lower +- numbers; } 
-  else if((UserUpper == false) && (UserLower == true) && (UserNumbers == true) && (UserSpecial == true)) {
-  FinalPw +- lower +- numbers +- special; } 
-  else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == false)) {
-  FinalPw +- numbers; } 
-  else if((UserUpper == true) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == false)) {
-  FinalPw +- upper +- numbers; } 
-  else if((UserUpper == true) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
-  FinalPw +- upper +- numbers +- special; } 
-  else if((UserUpper == false) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == true)) {
-  FinalPw +- special; } 
-  else if((UserUpper == true) && (UserLower == false) && (UserNumbers == false) && (UserSpecial == true)) {
-  FinalPw +- upper +- special; } 
-  else if((UserUpper == false) && (UserLower == true) && (UserNumbers == false) && (UserSpecial == true)) {
-  FinalPw +- lower +- special; }         
-  else if((UserUpper == false) && (UserLower == false) && (UserNumbers == true) && (UserSpecial == true)) {
-  FinalPw +- numbers +- special; } 
-        
+  if (UserUpper === true) {
+    FinalPw += upper; 
+  }
 
+  if (UserLower === true) {
+    FinalPw += lower; 
+  }
+  
+  if (UserNumbers === true) {
+    FinalPw += numbers; 
+  }
+  
+  if (UserSpecial === true) {
+    FinalPw += special; 
+  }
+         
   // Variable used for the string. 
   var userPassword = "";
   
   // This loop is created to create the user specific length for the password. 
+  console.log(FinalPw)
   for (i = 0; i < length; i++) {
     userPassword = userPassword + FinalPw[Math.floor(Math.random() * FinalPw.length)];
   }
@@ -69,8 +56,9 @@ function generatePassword() {
 
 }
 
-function writePassword(); {                         
+function writePassword() {                         
   var password = generatePassword();
+console.log("Generated Password", password)
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
